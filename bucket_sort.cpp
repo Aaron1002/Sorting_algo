@@ -27,6 +27,10 @@ int main ()
     reverse_array(arr_B, n);
     printf("Sorting with Bucket Sort: ");
     printout_array(arr_B, 1, n);
+    if (is_arr_desc(arr_B, n))
+        printf("order OK!");
+    else 
+        printf("!!WRONGLY SORTED!!");
 
     delete[] arr_A;
     delete[] arr_B;

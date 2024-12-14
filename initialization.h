@@ -52,3 +52,10 @@ void reverse_array(int*& arr, int){
         arr[n-i-1] = temp;
     }
 }
+
+bool is_arr_desc(int*& arr, int n){
+    for(int i=0; i<n-1; i++){
+        if(arr[i] < arr[i+1]) return false;
+    }
+    return true;
+}
