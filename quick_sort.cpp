@@ -23,6 +23,7 @@ int main ()
     }
     
     quickSort(arr_B, 0, n-1);
+    reverse_array(arr_B, n);
     printf("Sorting with Insertion Sort: ");
     printout_array(arr_B, 1, n);
 

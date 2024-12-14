@@ -22,6 +22,7 @@ int main ()
     }
     
     insertion_sort(arr_B, n);
+    reverse_array(arr_B, n);
     printf("Sorting with Insertion Sort: ");
     printout_array(arr_B, 1, n);
 

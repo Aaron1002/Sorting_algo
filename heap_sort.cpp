@@ -24,6 +24,7 @@ int main ()
     }
     
     heapSort(arr_B, 1, n);
+    reverse_array(arr_B, n);
     printf("Sorting with Heap Sort: ");
     printout_array(arr_B, 1, n);
 

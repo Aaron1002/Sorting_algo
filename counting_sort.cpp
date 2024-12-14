@@ -22,6 +22,7 @@ int main ()
     }
     
     counting_sort(arr_B, n);
+    reverse_array(arr_B, n);
     printf("Sorting with counting Sort: ");
     printout_array(arr_B, 1, n);
 

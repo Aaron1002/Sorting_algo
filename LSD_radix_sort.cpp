@@ -23,6 +23,7 @@ int main ()
     }
     
     LSD_radix_sort(arr_B, n);
+    reverse_array(arr_B, n);
     printf("Sorting with LSD Radix Sort: ");
     printout_array(arr_B, 1, n);
 
