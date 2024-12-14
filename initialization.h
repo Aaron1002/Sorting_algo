@@ -1,7 +1,10 @@
 #include <iostream>
 #include <climits>
 #include <cmath>
+#include <ctime>
+#include <chrono>
 using namespace std;
+using namespace std::chrono;
 
 bool print_or_not = 0;
 int n = 0;
@@ -59,3 +62,4 @@ bool is_arr_desc(int*& arr, int n){
     }
     return true;
 }
+

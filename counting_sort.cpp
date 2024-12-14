@@ -20,15 +20,18 @@ int main ()
         printf("The random numbers are: ");
         printout_array(arr_A, 1, n);
     }
-    
+
     counting_sort(arr_B, n);
     reverse_array(arr_B, n);
+
     printf("Sorting with counting Sort: ");
     printout_array(arr_B, 1, n);
     if (is_arr_desc(arr_B, n))
-        printf("order OK!");
+        printf("order OK!\n");
     else 
-        printf("!!WRONGLY SORTED!!");
+        printf("!!WRONGLY SORTED!!\n");
+
+    cout << (double)clock() / CLOCKS_PER_SEC << "sec";
 
     delete[] arr_A;
     delete[] arr_B;
