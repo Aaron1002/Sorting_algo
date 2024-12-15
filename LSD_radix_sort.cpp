@@ -22,8 +22,11 @@ int main ()
         printout_array(arr_A, 1, n);
     }
 
+    clock_t start = clock();
     LSD_radix_sort(arr_B, n);
     reverse_array(arr_B, n);
+    clock_t end = clock();
+    double elapsed_ms = (double(end - start) / CLOCKS_PER_SEC) * 1000.0;
 
     printf("Sorting with LSD Radix Sort: ");
     printout_array(arr_B, 1, n);
@@ -32,7 +35,7 @@ int main ()
     else 
         printf("!!WRONGLY SORTED!!\n");
 
-    cout << (double)clock() / CLOCKS_PER_SEC << "sec";
+    cout << "Execution time: " << elapsed_ms << " ms" << endl;
 
     delete[] arr_A;
     delete[] arr_B;
