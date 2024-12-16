@@ -1,3 +1,55 @@
+/*
+   This code can be compiled and run ok.
+	   
+   compile:
+     g++ heap_sort.cpp -o heap
+   
+   pseudocode:
+   
+    void deleteMax(int*& old_A, int& remain_size){
+        swap(old_A[0], old_A[remain_size-1]); // swap the last and the first element
+        remain_size--;
+        heapify(old_A, 0, remain_size);    // adjust the heap
+    }
+
+    void heapify(int*& old_A, int from, int remain_size){
+        int parent = from; // index
+        int L_child = 2 * parent + 1;
+        int R_child = 2 * parent + 2;
+        int largest = parent;
+        
+        if (L_child < remain_size && old_A[L_child] > old_A[parent]){
+            largest = L_child;
+        }
+        if (R_child < remain_size && old_A[R_child] > old_A[largest]){
+            largest = R_child;
+        }
+        
+        if (largest != parent){
+            swap(old_A[largest], old_A[parent]);
+            heapify(old_A, largest, remain_size);
+        }
+        
+    }
+
+    void heapSort(int*& old_A, int row, int n){
+        int remain_size = n;
+        
+        // Build a heap
+        for (int i=n/2; i>=0; i--){
+            heapify(old_A, i, n);  
+        }
+        
+        for (int i=0; i<n; i++){
+            deleteMax(old_A, remain_size);
+        }
+
+    }
+ 
+   coded by 王晏國, ID: H44114025, email: h44114025@gs.ncku.edu.com
+   date: 2024.12.16
+*/
+
 #include <iostream>
 #include "initialization.h"
 using namespace std;

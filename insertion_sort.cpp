@@ -1,3 +1,29 @@
+/*
+   This code can be compiled and run ok.
+	   
+   compile:
+     g++ insertion_sort.cpp -o insertion
+   
+   pseudocode:
+   
+    void insertion_sort(int*& arr, int n)
+    {
+        for (int i=1; i<n; i++){
+            int key = arr[i];
+            int j = i - 1;
+
+            while (j>=0 && arr[j] > key){
+                arr[j+1] = arr[j];
+                j--;
+            }
+            arr[j+1] = key;
+        }
+    }
+ 
+   coded by 王晏國, ID: H44114025, email: h44114025@gs.ncku.edu.com
+   date: 2024.12.16
+*/
+
 #include <iostream>
 #include "initialization.h"
 using namespace std;

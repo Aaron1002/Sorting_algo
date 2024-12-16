@@ -49,6 +49,8 @@
         "xstring": "cpp",
         "xtr1common": "cpp",
         "xutility": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "forward_list": "cpp",
+        "vector": "cpp"
     }
 }

@@ -1,3 +1,46 @@
+/*
+   This code can be compiled and run ok.
+	   
+   compile:
+     g++ LSD_radix_sort.cpp -o LSD_radix
+   
+   pseudocode:
+   
+    void counting_sort(int*& arr, int n, int max)
+    {
+        int freq[10];
+        int *out = new int[n];
+
+        for (int pass=1; max/pass > 1; pass*=10){           
+            for (int i=0; i < 10; i++)
+                freq[i] = 0;
+            for (int i=0; i < n; i++)    
+                freq[arr[i]/pass%10]++;
+            for (int i=1; i < 10; i++)
+                freq[i] = freq[i] + freq[i-1];
+            for (int i=n-1; i >= 0; i--){
+                out[freq[arr[i]/pass%10] - 1] = arr[i]; // 'arr' should fit 'out'
+                freq[arr[i]/pass%10]--;
+            }
+            duplicate_array(out, arr, n);
+        }
+
+        duplicate_array(out, arr, n);
+
+        delete[] out;            
+    }
+
+    void LSD_radix_sort(int*& arr, int n)
+    {
+        int max = getMax(arr, n);
+
+        counting_sort(arr, n, max);
+    }
+ 
+   coded by 王晏國, ID: H44114025, email: h44114025@gs.ncku.edu.com
+   date: 2024.12.16
+*/
+
 #include <iostream>
 #include "initialization.h"
 using namespace std;

@@ -1,3 +1,54 @@
+/*
+   This code can be compiled and run ok.
+	   
+   compile:
+     g++ bucket_sort.cpp -o bucket
+   
+   pseudocode:
+   
+   void insertion_sort(vector<float>& bucket)
+        for (int i=1; i<bucket.size(); i++){
+            float key = bucket[i];
+            int j = i - 1;
+
+            while (j>=0 && bucket[j] > key){
+                bucket[j+1] = bucket[j];
+                j--;
+            }
+            bucket[j+1] = key;
+        }
+
+
+    void bucket_sort(int*& arr, int n) 
+        // Step 1: Find the maximum value in the array
+        int max_val = getMax(arr, n);
+
+        // Step 2: Create and initialize buckets
+        vector<vector<float>> buckets(n);
+
+        // Step 3: Distribute elements into buckets based on value
+        for (int i = 0; i < n; i++) {
+            int index = (static_cast<long long>(arr[i]) * (n - 1)) / max_val; // Handle large arrays
+            buckets[index].push_back(arr[i]);
+        }
+
+        // Step 4: Sort each bucket using insertion sort in non-decreasing order
+        for (auto& bucket : buckets) {
+            insertion_sort(bucket);
+        }
+
+        // Step 5: Collect sorted elements from buckets in increasing order
+        int idx = 0;
+        for (int i = 0; i < n; i++) {
+            for (float num : buckets[i]) {
+                arr[idx++] = static_cast<int>(num);
+            }
+        }
+ 
+   coded by 王晏國, ID: H44114025, email: h44114025@gs.ncku.edu.com
+   date: 2024.12.16
+*/
+
 #include <iostream>
 #include <vector>
 #include "initialization.h"
@@ -84,13 +135,5 @@ void bucket_sort(int*& arr, int n) {
             arr[idx++] = static_cast<int>(num);
         }
     }
-}
-
-// Helper function to print the array
-void printout_array(int* A, int n) {
-    for (int i = 0; i < n; i++) {
-        cout << A[i] << " ";
-    }
-    cout << endl;
 }
 

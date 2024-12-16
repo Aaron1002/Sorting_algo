@@ -1,3 +1,59 @@
+/*
+   This code can be compiled and run ok.
+	   
+   compile:
+     g++ merge_sort.cpp -o merge
+   
+   pseudocode:
+   
+    void merg_sort(int*& arr, int start, int end){
+        if (start < end){   // **when start==mid==end,recursion終止**
+            int mid = floor( (start+end)/2 );   
+            merg_sort(arr, start, mid); //前半sort
+            merg_sort(arr, mid+1, end); //後半sort
+            merge(arr, start, mid, end);    
+        }
+    }
+    void merge(int*& arr, int start, int mid, int end){
+        
+        int n1 = mid - start + 1;   //前半的元素數量
+        int n2 = end - mid; //後半的元素數量
+        double *L = new double[n1+1]; 
+        double *R = new double[n2+1]; 
+        
+        for (int i=0; i<n1; i++){   //放前半元素
+            L[i] = arr[start+i];
+        }
+        for (int i=0; i<n2; i++){   //放後半元素
+            R[i] = arr[mid+i+1];
+        }
+        
+        L[n1] = INT_MAX;    
+        R[n2] = INT_MAX;    
+        //設終止條件給下面i,j的移動，當一陣列空時，INT_MAX(sentinel value)
+        //會讓該陣列不再被選取。其中，INT_MAX為int之最大值(可視為無限大)
+
+        int i = 0;
+        int j = 0;
+        for (int k=start; k<end+1; k++){    //比較前半&後半個元素大小並放入原array
+            if (L[i] <= R[j]){
+                arr[k] = L[i];
+                i++;
+            }
+            else{
+                arr[k] = R[j];
+                j++;
+            }
+        }
+        delete[] L;
+        delete[] R;
+        
+    }
+ 
+   coded by 王晏國, ID: H44114025, email: h44114025@gs.ncku.edu.com
+   date: 2024.12.16
+*/
+
 #include <iostream>
 #include <climits>
 #include <cmath>
